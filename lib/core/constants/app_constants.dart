@@ -189,7 +189,7 @@ const Map<UserRole, RoleConfig> ROLE_CONFIGS = {
   ),
 };
 
-const List<QuickAction> QUICK_ACTIONS = [
+final List<QuickAction> QUICK_ACTIONS = [
   QuickAction(
     id: 'advance',
     label: 'Salary Advance',
