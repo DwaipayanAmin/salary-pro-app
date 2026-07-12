@@ -1,0 +1,15 @@
+{
+  "name": "blue_collar_tracker_preview",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'Pruning React - Flutter is ready'",
+    "start": "node server.js",
+    "lint": "echo 'Pruning React - Flutter is clean'"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

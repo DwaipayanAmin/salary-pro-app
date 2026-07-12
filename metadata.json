@@ -1,0 +1,6 @@
+{
+  "name": "Salary Pro",
+  "description": "An all-in-one employee and salary management app designed for factory, office, warehouse, apprentice, and contract workers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
