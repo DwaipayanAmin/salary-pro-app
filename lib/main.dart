@@ -180,7 +180,7 @@ class _AppMainLayoutState extends State<AppMainLayout> {
               duration: const Duration(milliseconds: 150),
               style: TextStyle(
                 fontSize: 11,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.medium,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
                 color: isSelected
                     ? (isDark ? accentColor : primaryColor)
                     : (isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8)),
