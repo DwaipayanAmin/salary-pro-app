@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/app_theme.dart';
+import '../../../../core/theme/route_transitions.dart';
 import '../../dashboard/providers/role_provider.dart';
 import '../providers/earnings_provider.dart';
+import 'overtime_screen.dart';
+import 'pf_screen.dart';
+import 'esi_screen.dart';
+import 'payslip_screen.dart';
+import 'reports_screen.dart';
+import '../../../shift/presentation/screens/shift_screen.dart';
 
 class EarningsScreen extends ConsumerWidget {
   const EarningsScreen({super.key});
@@ -13,10 +20,15 @@ class EarningsScreen extends ConsumerWidget {
     final activeRole = ref.watch(activeRoleProvider);
     final earningsState = ref.watch(earningsProvider(activeRole));
     final currencyFormat = NumberFormat.currency(locale: 'en_IN', symbol: '₹', decimalDigits: 0);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final activeRoleStr = activeRole.toString().split('.').last;
+    final calculatorState = ref.watch(salaryCalculatorProvider('emp_$activeRoleStr'));
 
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -25,35 +37,77 @@ class EarningsScreen extends ConsumerWidget {
                 const SizedBox(height: 12),
                 const Text(
                   'EARNINGS & PAYROLL LEDGER',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, letterSpacing: 1.0, color: Colors.grey),
+                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1.0, color: Colors.grey),
                 ),
                 const SizedBox(height: 16),
 
-                earningsState.when(
-                  data: (records) {
-                    if (records.isEmpty) {
-                      return const Center(child: Text('No earnings data logged.'));
-                    }
+                // 1. Premium Horizontal Quick Ledger Actions bar
+                SizedBox(
+                  height: 40,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      _buildQuickBadge(context, 'Payslips', Icons.receipt_long_outlined, Colors.blue, isDark, () {
+                        Navigator.push(context, createPremiumRoute(const PayslipScreen()));
+                      }),
+                      const SizedBox(width: 10),
+                      _buildQuickBadge(context, 'Shift Roster', Icons.schedule_outlined, Colors.purple, isDark, () {
+                        Navigator.push(context, createPremiumRoute(const ShiftScreen()));
+                      }),
+                      const SizedBox(width: 10),
+                      _buildQuickBadge(context, 'Stats Reports', Icons.analytics_outlined, Colors.orange, isDark, () {
+                        Navigator.push(context, createPremiumRoute(const ReportsScreen()));
+                      }),
+                      const SizedBox(width: 10),
+                      _buildQuickBadge(context, 'ESI Scheme', Icons.health_and_safety_outlined, Colors.emerald, isDark, () {
+                        Navigator.push(context, createPremiumRoute(const EsiScreen()));
+                      }),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 24),
 
-                    // Display the most recent ledger record
-                    final activeRecord = records.first;
-                    final basicSalary = activeRecord.basicSalary;
-                    final otHours = activeRecord.hoursOvertime;
-                    final allowances = activeRecord.allowancePaid;
-                    final pfDeductions = activeRecord.pfDeducted;
+                calculatorState.when(
+                  data: (calc) {
+                    final basicSalary = calc.basicEarned;
+                    final otEarnings = calc.otEarnings;
+                    final allowances = calc.allowances;
+                    final bonus = calc.bonus;
+                    final pfDeductions = calc.pfDeduction;
 
-                    // Calculate OT pay
-                    final otRate = (basicSalary / 160) * 1.5; // Mock OT hourly estimate
-                    final otEarnings = otHours * otRate;
-                    final grossEarnings = basicSalary + otEarnings + allowances;
-                    final netSalary = grossEarnings - pfDeductions;
+                    final grossEarnings = basicSalary + otEarnings + allowances + bonus;
+                    final netSalary = calc.netSalary;
 
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // 1. Large Circular visual representation card of Net Wage
-                        Card(
-                          color: AppTheme.primaryColor,
+                        // 2. Large visual representation card of Net Wage
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                AppTheme.primaryColor,
+                                const Color(0xFF2E3E56),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                              color: AppTheme.accentColor.withOpacity(0.4),
+                              width: 1,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.accentColor.withOpacity(0.08),
+                                blurRadius: 16,
+                                spreadRadius: 2,
+                                offset: const Offset(0, 4),
+                              ),
+                            ],
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.all(24.0),
                             child: Column(
@@ -62,18 +116,27 @@ class EarningsScreen extends ConsumerWidget {
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      'NET PAYOUT ACUMULATION (${activeRecord.yearMonth})',
-                                      style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.6), fontWeight: FontWeight.bold),
+                                      'NET PAYOUT ACCUMULATION (${calc.yearMonth})',
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        color: Colors.white.withOpacity(0.65),
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 0.8,
+                                      ),
                                     ),
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                       decoration: BoxDecoration(
-                                        color: Colors.white.withOpacity(0.15),
-                                        borderRadius: BorderRadius.circular(8),
+                                        color: Colors.emerald.withOpacity(0.18),
+                                        borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: const Text(
                                         'Offline Audited',
-                                        style: TextStyle(fontSize: 10, color: Colors.emerald, fontWeight: FontWeight.bold),
+                                        style: TextStyle(
+                                          fontSize: 9,
+                                          color: Colors.emerald,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -90,9 +153,20 @@ class EarningsScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 12),
-                                Text(
-                                  'Gross: ${currencyFormat.format(grossEarnings)}  •  Withholdings: ${currencyFormat.format(pfDeductions)}',
-                                  style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withOpacity(0.08),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Text(
+                                    'Gross: ${currencyFormat.format(grossEarnings)}  •  Withholdings: ${currencyFormat.format(pfDeductions + calc.esiDeduction + calc.leaveDeductions)}',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white.withOpacity(0.85),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -100,10 +174,10 @@ class EarningsScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 24),
 
-                        // 2. Bento Grid of breakdown components
+                        // 3. Bento Grid of breakdown components
                         const Text(
-                          'BREAKDOWN ANALYTICS',
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, letterSpacing: 1.0, color: Colors.grey),
+                          'BREAKDOWN ANALYTICS (TAP TO OPEN COVERAGE)',
+                          style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, letterSpacing: 1.0, color: Colors.grey),
                         ),
                         const SizedBox(height: 12),
                         Row(
@@ -115,6 +189,7 @@ class EarningsScreen extends ConsumerWidget {
                                 currencyFormat.format(basicSalary),
                                 Icons.wallet_outlined,
                                 Colors.blue,
+                                null, // Standard basic view
                               ),
                             ),
                             const SizedBox(width: 12),
@@ -125,6 +200,9 @@ class EarningsScreen extends ConsumerWidget {
                                 currencyFormat.format(otEarnings),
                                 Icons.add_alarm_outlined,
                                 Colors.purple,
+                                () {
+                                  Navigator.push(context, createPremiumRoute(const OvertimeScreen()));
+                                },
                               ),
                             ),
                           ],
@@ -135,10 +213,13 @@ class EarningsScreen extends ConsumerWidget {
                             Expanded(
                               child: _buildBreakdownCard(
                                 context,
-                                'Travel & Meal',
-                                currencyFormat.format(allowances),
-                                Icons.local_taxi_outlined,
+                                'ESI Scheme Cover',
+                                'Cashless Active',
+                                Icons.health_and_safety_outlined,
                                 Colors.emerald,
+                                () {
+                                  Navigator.push(context, createPremiumRoute(const EsiScreen()));
+                                },
                               ),
                             ),
                             const SizedBox(width: 12),
@@ -149,41 +230,55 @@ class EarningsScreen extends ConsumerWidget {
                                 '-${currencyFormat.format(pfDeductions)}',
                                 Icons.savings_outlined,
                                 Colors.red,
+                                () {
+                                  Navigator.push(context, createPremiumRoute(const PfScreen()));
+                                },
                               ),
                             ),
                           ],
                         ),
                         const SizedBox(height: 24),
 
-                        // 3. PF / Retirement Ledger card
-                        Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.shield_outlined, color: AppTheme.accentColor),
-                                    const SizedBox(width: 8),
-                                    const Text('Government EPF Contribution', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
-                                  ],
-                                ),
-                                const SizedBox(height: 12),
-                                const Text(
-                                  'Your employer matches your Provident Fund contribution (12%) rupee for rupee. Together with interest, this grows your emergency reserve.',
-                                  style: TextStyle(fontSize: 12, color: Colors.grey, height: 1.4),
-                                ),
-                                const SizedBox(height: 16),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    _buildPFStat('Worker Share', currencyFormat.format(pfDeductions)),
-                                    _buildPFStat('Employer Match', currencyFormat.format(pfDeductions)),
-                                    _buildPFStat('Total Monthly EPF', currencyFormat.format(pfDeductions * 2)),
-                                  ],
-                                ),
-                              ],
+                        // 4. PF / Retirement Ledger card (Tapping opens detailed PF ledger)
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context, createPremiumRoute(const PfScreen()));
+                          },
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(Icons.shield_outlined, color: AppTheme.accentColor),
+                                          const SizedBox(width: 8),
+                                          const Text('Government EPF Contribution', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                                        ],
+                                      ),
+                                      const Icon(Icons.chevron_right, color: Colors.grey, size: 20),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 12),
+                                  const Text(
+                                    'Your employer matches your Provident Fund contribution (12%) rupee for rupee. Together with interest, this grows your emergency reserve. Tap to view member ledger.',
+                                    style: TextStyle(fontSize: 12, color: Colors.grey, height: 1.4),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      _buildPFStat('Worker Share', currencyFormat.format(pfDeductions)),
+                                      _buildPFStat('Employer Match', currencyFormat.format(pfDeductions)),
+                                      _buildPFStat('Total Monthly EPF', currencyFormat.format(pfDeductions * 2)),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -201,8 +296,39 @@ class EarningsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildBreakdownCard(BuildContext context, String label, String value, IconData icon, Color color) {
-    return Container(
+  Widget _buildQuickBadge(BuildContext context, String label, IconData icon, Color color, bool isDark, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        decoration: BoxDecoration(
+          color: color.withOpacity(isDark ? 0.12 : 0.08),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: color.withOpacity(isDark ? 0.3 : 0.2),
+            width: 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: color, size: 16),
+            const SizedBox(width: 6),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold,
+                color: color,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBreakdownCard(BuildContext context, String label, String value, IconData icon, Color color, VoidCallback? onTap) {
+    final cardWidget = Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
@@ -215,22 +341,46 @@ class EarningsScreen extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(label, style: const TextStyle(fontSize: 11, color: Colors.grey, fontWeight: FontWeight.bold)),
+              Expanded(
+                child: Text(
+                  label,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 11, color: Colors.grey, fontWeight: FontWeight.bold),
+                ),
+              ),
               Icon(icon, color: color, size: 18),
             ],
           ),
           const SizedBox(height: 12),
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Space Grotesk',
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Text(
+                  value,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Space Grotesk',
+                  ),
+                ),
+              ),
+              if (onTap != null)
+                const Icon(Icons.arrow_forward, size: 12, color: Colors.grey),
+            ],
           ),
         ],
       ),
     );
+
+    if (onTap != null) {
+      return GestureDetector(
+        onTap: onTap,
+        child: cardWidget,
+      );
+    }
+    return cardWidget;
   }
 
   Widget _buildPFStat(String label, String value) {

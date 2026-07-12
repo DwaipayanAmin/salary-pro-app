@@ -711,7 +711,7 @@ app.get('/', (req, res) => {
           iconSvg = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />';
         }
 
-        container.innerHTML += `
+        container.innerHTML += \`
           <div class="flex gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-800/60">
             <div class="p-2 bg-\${iconColor}-500/10 rounded-lg text-\${iconColor}-400 h-9 w-9 flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -726,7 +726,7 @@ app.get('/', (req, res) => {
               <p class="text-[10px] text-slate-400 mt-0.5 truncate">\${item.desc}</p>
             </div>
           </div>
-        `;
+        \`;
       });
     }
 
@@ -737,7 +737,7 @@ app.get('/', (req, res) => {
       const list = DB_ATTENDANCE[activeRole] || [];
 
       list.forEach(item => {
-        container.innerHTML += `
+        container.innerHTML += \`
           <div class="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 flex justify-between items-center">
             <div>
               <h4 class="font-bold text-xs text-white">\${item.date}</h4>
@@ -745,7 +745,7 @@ app.get('/', (req, res) => {
             </div>
             <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold text-[10px] px-2.5 py-1 rounded-lg">\${item.hours}</span>
           </div>
-        `;
+        \`;
       });
     }
 
@@ -827,7 +827,7 @@ app.get('/', (req, res) => {
           const h = Math.floor(elapsedSeconds / 3600).toString().padLeft(2, '0');
           const m = Math.floor((elapsedSeconds % 3600) / 60).toString().padLeft(2, '0');
           const s = (elapsedSeconds % 60).toString().padLeft(2, '0');
-          timer.innerText = `\${h}:\${m}:\${s}`;
+          timer.innerText = \`\${h}:\${m}:\${s}\`;
         }, 1000);
 
         // Add to activities
@@ -892,7 +892,7 @@ app.get('/', (req, res) => {
       if (serviceId === 'advance') {
         title.innerText = "Request Salary Advance";
         desc.innerText = "Need money early? Request an advance up to 50% of your current accrued monthly earnings interest-free. Payouts transfer instantly upon automated swipe verification.";
-        formContent.innerHTML = `
+        formContent.innerHTML = \`
           <div class="space-y-2">
             <div class="flex justify-between text-xs text-slate-400 font-bold">
               <span>Advance Amount Requested</span>
@@ -904,21 +904,21 @@ app.get('/', (req, res) => {
               <span>₹10,000 (Max - 50% Limit)</span>
             </div>
           </div>
-        `;
+        \`;
       } else if (serviceId === 'ot') {
         title.innerText = "Log Overtime Hours";
         desc.innerText = "Record extra hours spent outside regular shift limits. Submissions are verified against digital RFID swipe gates automatically.";
-        formContent.innerHTML = `
+        formContent.innerHTML = \`
           <div class="flex gap-2.5 justify-center py-2">
             <button class="bg-slate-800 text-slate-400 text-xs py-1.5 px-4 rounded-xl border border-slate-700/50">1.0 Hr</button>
             <button class="bg-amber-500 text-slate-950 font-bold text-xs py-1.5 px-4 rounded-xl">2.0 Hrs</button>
             <button class="bg-slate-800 text-slate-400 text-xs py-1.5 px-4 rounded-xl border border-slate-700/50">3.0 Hrs</button>
           </div>
-        `;
+        \`;
       } else if (serviceId === 'payslip') {
         title.innerText = "View Interactive Payslips";
         desc.innerText = "View, download, or share digitally signed PDF payslips complete with tax breakdowns, PF, and OT bonuses.";
-        formContent.innerHTML = `
+        formContent.innerHTML = \`
           <div class="space-y-2">
             <div class="flex justify-between bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs items-center">
               <span>June_2026_Payslip.pdf</span>
@@ -929,13 +929,13 @@ app.get('/', (req, res) => {
               <span class="text-emerald-400 font-bold">Ready</span>
             </div>
           </div>
-        `;
+        \`;
       } else if (serviceId === 'leave') {
         title.innerText = "Apply Casual Leave / Time-Off";
         desc.innerText = "Submit requests for sick leave, casual leave, or unpaid personal days off. Checks active balance dynamically before processing.";
-        formContent.innerHTML = `
+        formContent.innerHTML = \`
           <textarea placeholder="Enter emergency cause, sickness or family travel info" class="w-full bg-slate-950 border border-slate-800 text-xs rounded-xl p-3 text-white outline-none focus:border-amber-500 h-20 resize-none"></textarea>
-        `;
+        \`;
       }
     }
 

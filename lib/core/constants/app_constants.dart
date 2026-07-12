@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum UserRole { factory, office, warehouse, apprentice, contract }
+enum UserRole { factory, office, warehouse, apprentice, contract, qualityChecker }
 
 class RoleConfig {
   final UserRole id;
@@ -168,6 +168,23 @@ const Map<UserRole, RoleConfig> ROLE_CONFIGS = {
       'Flexible Shift Selection',
       'Daily Meal & Travel Allowance',
       'Emergency Medical Cover'
+    ],
+  ),
+  UserRole.qualityChecker: RoleConfig(
+    id: UserRole.qualityChecker,
+    title: 'Quality Checker',
+    category: 'Quality Assurance',
+    icon: Icons.fact_check_outlined,
+    baseSalary: 28500,
+    hourlyRate: 150,
+    shiftType: 'Day Shift (09:00 - 17:30)',
+    otMultiplier: 1.5,
+    pfApplicable: true,
+    benefits: [
+      'Provident Fund (PF) (12%)',
+      'ESIC Healthcare Scheme',
+      'Quality Compliance Bonus',
+      'Paid Casual Leaves (15)'
     ],
   ),
 };

@@ -3,7 +3,7 @@ import '../../../core/constants/app_constants.dart';
 import '../../../core/database/local_database.dart';
 
 // Provider for active selected role
-final activeRoleProvider = StateProvider<UserRole>((ref) => UserRole.factory);
+final activeRoleProvider = StateProvider<UserRole>((ref) => UserRole.qualityChecker);
 
 // Provider for tracking light vs dark theme mode
 final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.light);
