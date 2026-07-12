@@ -125,7 +125,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.verified_user_outlined, color: Colors.emerald, size: 16),
+                      const Icon(Icons.verified_user_outlined, color: const Color(0xFF10B981), size: 16),
                       const SizedBox(width: 8),
                       Text(
                         'Offline-First Local Storage Certified',

@@ -42,7 +42,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                         '96.2%',
                         'Excellent (Target > 92%)',
                         Icons.check_circle_outline,
-                        Colors.emerald,
+                        const Color(0xFF10B981),
                         isDark,
                       ),
                     ),
@@ -128,9 +128,9 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                               textColor = Colors.grey;
                               break;
                             case 1: // Attended
-                              boxColor = Colors.emerald.withOpacity(0.15);
-                              border = Border.all(color: Colors.emerald.withOpacity(0.3));
-                              textColor = Colors.emerald.shade500;
+                              boxColor = const Color(0xFF10B981).withOpacity(0.15);
+                              border = Border.all(color: const Color(0xFF10B981).withOpacity(0.3));
+                              textColor = const Color(0xFF10B981);
                               break;
                             case 2: // Absent
                               boxColor = Colors.red.withOpacity(0.12);
@@ -173,7 +173,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          _buildLegendDot('Present', Colors.emerald),
+                          _buildLegendDot('Present', const Color(0xFF10B981)),
                           _buildLegendDot('Leave', Colors.amber),
                           _buildLegendDot('Absent', Colors.red),
                           _buildLegendDot('Holiday', Colors.grey),
@@ -263,7 +263,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                             barGroups: [
                               BarChartGroupData(
                                 x: 0,
-                                barRods: [BarChartRodData(toY: 42.5, color: Colors.emerald, width: 18, borderRadius: BorderRadius.circular(4))],
+                                barRods: [BarChartRodData(toY: 42.5, color: const Color(0xFF10B981), width: 18, borderRadius: BorderRadius.circular(4))],
                               ),
                               BarChartGroupData(
                                 x: 1,
@@ -275,7 +275,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
                               ),
                               BarChartGroupData(
                                 x: 3,
-                                barRods: [BarChartRodData(toY: 45.0, color: Colors.emerald, width: 18, borderRadius: BorderRadius.circular(4))],
+                                barRods: [BarChartRodData(toY: 45.0, color: const Color(0xFF10B981), width: 18, borderRadius: BorderRadius.circular(4))],
                               ),
                             ],
                           ),
@@ -418,7 +418,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
             Text('Ledger Report (Q2_2026_ledger.pdf) compiled successfully!'),
           ],
         ),
-        backgroundColor: Colors.emerald,
+        backgroundColor: const Color(0xFF10B981),
       ),
     );
   }

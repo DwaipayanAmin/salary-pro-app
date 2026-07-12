@@ -226,7 +226,7 @@ class _PfScreenState extends ConsumerState<PfScreen> {
                           ),
                           Text(
                             'Interest Rate: 8.15% p.a.',
-                            style: TextStyle(fontSize: 10, color: Colors.emerald.shade500, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 10, color: const Color(0xFF10B981), fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -389,10 +389,10 @@ class _PfScreenState extends ConsumerState<PfScreen> {
                               Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.emerald.withOpacity(0.1),
+                                  color: const Color(0xFF10B981).withOpacity(0.1),
                                   shape: BoxShape.circle,
                                 ),
-                                child: const Icon(Icons.account_balance, color: Colors.emerald, size: 16),
+                                child: const Icon(Icons.account_balance, color: const Color(0xFF10B981), size: 16),
                               ),
                               const SizedBox(width: 12),
                               Column(
@@ -416,7 +416,7 @@ class _PfScreenState extends ConsumerState<PfScreen> {
                             children: [
                               Text(
                                 currencyFormat.format(depositSum),
-                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.emerald),
+                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: const Color(0xFF10B981)),
                               ),
                               const SizedBox(height: 2),
                               const Text(

@@ -247,7 +247,7 @@ class _LeaveManagementScreenState extends ConsumerState<LeaveManagementScreen> {
                                     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                     decoration: BoxDecoration(
                                       color: isApproved
-                                          ? Colors.emerald.withOpacity(0.12)
+                                          ? const Color(0xFF10B981).withOpacity(0.12)
                                           : (isPending ? Colors.amber.withOpacity(0.12) : Colors.red.withOpacity(0.12)),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
@@ -256,7 +256,7 @@ class _LeaveManagementScreenState extends ConsumerState<LeaveManagementScreen> {
                                       style: TextStyle(
                                         fontSize: 9,
                                         fontWeight: FontWeight.bold,
-                                        color: isApproved ? Colors.emerald : (isPending ? Colors.amber : Colors.red),
+                                        color: isApproved ? const Color(0xFF10B981) : (isPending ? Colors.amber : Colors.red),
                                       ),
                                     ),
                                   ),
@@ -286,7 +286,7 @@ class _LeaveManagementScreenState extends ConsumerState<LeaveManagementScreen> {
                                     const SizedBox(width: 8),
                                     ElevatedButton(
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.emerald,
+                                        backgroundColor: const Color(0xFF10B981),
                                         foregroundColor: Colors.white,
                                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                                       ),
@@ -410,7 +410,7 @@ class _LeaveManagementScreenState extends ConsumerState<LeaveManagementScreen> {
     await ref.read(leaveProvider.notifier).updateLeaveStatus(id, status);
     ref.invalidate(salaryCalculatorProvider); // Force re-evaluating salary calculations
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Leave status updated to $status.'), backgroundColor: status == 'Approved' ? Colors.emerald : Colors.redAccent),
+      SnackBar(content: Text('Leave status updated to $status.'), backgroundColor: status == 'Approved' ? const Color(0xFF10B981) : Colors.redAccent),
     );
   }
 }

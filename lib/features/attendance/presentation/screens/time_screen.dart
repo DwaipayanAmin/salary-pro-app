@@ -91,7 +91,7 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                     color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.circular(24),
                     border: Border.all(
-                      color: attendanceState.isClockedIn ? Colors.emerald.withOpacity(0.3) : Colors.grey.withOpacity(0.2),
+                      color: attendanceState.isClockedIn ? const Color(0xFF10B981).withOpacity(0.3) : Colors.grey.withOpacity(0.2),
                       width: 1.5,
                     ),
                   ),
@@ -103,7 +103,7 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1.5,
-                          color: attendanceState.isClockedIn ? Colors.emerald : Colors.grey,
+                          color: attendanceState.isClockedIn ? const Color(0xFF10B981) : Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -113,7 +113,7 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                           fontSize: attendanceState.isClockedIn ? 42 : 14,
                           fontWeight: attendanceState.isClockedIn ? FontWeight.bold : FontWeight.normal,
                           fontFamily: 'Space Grotesk',
-                          color: attendanceState.isClockedIn ? Colors.emerald : Colors.grey,
+                          color: attendanceState.isClockedIn ? const Color(0xFF10B981) : Colors.grey,
                         ),
                       ),
                       const SizedBox(height: 36),
@@ -130,13 +130,13 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                               shape: BoxShape.circle,
                               gradient: RadialGradient(
                                 colors: attendanceState.isClockedIn
-                                    ? [Colors.emerald.shade400, Colors.emerald.shade900]
+                                    ? [const Color(0xFF34D399), const Color(0xFF10B981).shade900]
                                     : [AppTheme.accentColor.shade400, AppTheme.accentColor.shade900],
                               ),
                               boxShadow: [
                                 BoxShadow(
                                   color: attendanceState.isClockedIn
-                                      ? Colors.emerald.withOpacity(0.4)
+                                      ? const Color(0xFF10B981).withOpacity(0.4)
                                       : AppTheme.accentColor.withOpacity(0.4),
                                   blurRadius: 20,
                                   spreadRadius: 2,
@@ -239,7 +239,7 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                                 decoration: BoxDecoration(
                                   color: record.checkOutTime != null
                                       ? Colors.blue.withOpacity(0.1)
-                                      : Colors.emerald.withOpacity(0.1),
+                                      : const Color(0xFF10B981).withOpacity(0.1),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Text(
@@ -249,7 +249,7 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
-                                    color: record.checkOutTime != null ? Colors.blue : Colors.emerald,
+                                    color: record.checkOutTime != null ? Colors.blue : const Color(0xFF10B981),
                                   ),
                                 ),
                               ),
@@ -330,7 +330,7 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
             Text('Biometric verification verified. Punch processed offline.'),
           ],
         ),
-        backgroundColor: Colors.emerald,
+        backgroundColor: const Color(0xFF10B981),
       ),
     );
   }

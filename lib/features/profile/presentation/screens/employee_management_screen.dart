@@ -86,7 +86,7 @@ class _EmployeeManagementScreenState extends ConsumerState<EmployeeManagementScr
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                   content: Text('Switched active profile to ${emp.fullName} (${emp.role.toUpperCase()})'),
-                                  backgroundColor: Colors.emerald,
+                                  backgroundColor: const Color(0xFF10B981),
                                 ),
                               );
                             },
@@ -333,7 +333,7 @@ class _EmployeeManagementScreenState extends ConsumerState<EmployeeManagementScr
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(isEdit ? 'Profile saved successfully!' : 'New worker registered in offline database!'),
-                        backgroundColor: Colors.emerald,
+                        backgroundColor: const Color(0xFF10B981),
                       ),
                     );
                   },

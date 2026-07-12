@@ -200,7 +200,7 @@ class _PayslipScreenState extends ConsumerState<PayslipScreen> {
                                       style: TextStyle(
                                         fontSize: 22,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.emerald.shade500,
+                                        color: const Color(0xFF10B981),
                                         fontFamily: 'Space Grotesk',
                                       ),
                                     ),
@@ -224,7 +224,7 @@ class _PayslipScreenState extends ConsumerState<PayslipScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                _buildMetricsColumn('Present', '${calc.daysPresent.toStringAsFixed(0)} Days', Colors.emerald),
+                                _buildMetricsColumn('Present', '${calc.daysPresent.toStringAsFixed(0)} Days', const Color(0xFF10B981)),
                                 _buildMetricsColumn('Absent', '${calc.daysAbsent.toStringAsFixed(0)} Days', Colors.red),
                                 _buildMetricsColumn('On Leave', '${calc.daysOnLeave.toStringAsFixed(0)} Days', Colors.orange),
                               ],
@@ -311,7 +311,7 @@ class _PayslipScreenState extends ConsumerState<PayslipScreen> {
                                   const SizedBox(height: 2),
                                   const Text(
                                     'Audited & Signed',
-                                    style: TextStyle(fontSize: 9, color: Colors.emerald, fontWeight: FontWeight.bold),
+                                    style: TextStyle(fontSize: 9, color: const Color(0xFF10B981), fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -405,7 +405,7 @@ class _PayslipScreenState extends ConsumerState<PayslipScreen> {
             Text('Signed PDF Payslip ($period) downloaded successfully to offline storage.'),
           ],
         ),
-        backgroundColor: Colors.emerald,
+        backgroundColor: const Color(0xFF10B981),
       ),
     );
   }

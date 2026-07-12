@@ -92,9 +92,9 @@ class EsiScreen extends ConsumerWidget {
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
-                                color: Colors.emerald.shade400.withOpacity(0.25),
+                                color: const Color(0xFF34D399).withOpacity(0.25),
                                 borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Colors.emerald.shade300, width: 0.5),
+                                border: Border.all(color: const Color(0xFF6EE7B7), width: 0.5),
                               ),
                               child: const Text(
                                 'Active',
@@ -207,7 +207,7 @@ class EsiScreen extends ConsumerWidget {
                   mainAxisSpacing: 12,
                   childAspectRatio: 1.8,
                   children: [
-                    _buildCoverageTile(context, 'Medical Care', 'Full free cashless treatment', Icons.healing_outlined, Colors.emerald, isDark),
+                    _buildCoverageTile(context, 'Medical Care', 'Full free cashless treatment', Icons.healing_outlined, const Color(0xFF10B981), isDark),
                     _buildCoverageTile(context, 'Sickness Benefit', '70% wage payout on leave', Icons.sick_outlined, Colors.blue, isDark),
                     _buildCoverageTile(context, 'Maternity/Family', 'Full delivery cover', Icons.child_care_outlined, Colors.pink, isDark),
                     _buildCoverageTile(context, 'Disability Care', 'Continuous pension relief', Icons.wheelchair_pickup_outlined, Colors.purple, isDark),
@@ -288,10 +288,10 @@ class EsiScreen extends ConsumerWidget {
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: Colors.emerald.withOpacity(0.1),
+                              color: const Color(0xFF10B981).withOpacity(0.1),
                               shape: BoxShape.circle,
                             ),
-                            child: const Icon(Icons.check_circle_outline, color: Colors.emerald, size: 16),
+                            child: const Icon(Icons.check_circle_outline, color: const Color(0xFF10B981), size: 16),
                           ),
                           const SizedBox(width: 12),
                           Column(
@@ -315,7 +315,7 @@ class EsiScreen extends ConsumerWidget {
                         children: [
                           Text(
                             '₹4,500',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.emerald),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: const Color(0xFF10B981)),
                           ),
                           SizedBox(height: 2),
                           Text(

@@ -221,7 +221,7 @@ final List<QuickAction> QUICK_ACTIONS = [
     id: 'leave',
     label: 'Apply Leave',
     icon: Icons.calendar_today_outlined,
-    gradientColors: [Colors.emerald, Colors.teal],
+    gradientColors: [const Color(0xFF10B981), Colors.teal],
     dialogTitle: 'Apply for Leave / Time-Off',
     dialogDescription:
         'Submit requests for sick leave, casual leave, or unpaid personal days off. Checks active balance dynamically before processing.',

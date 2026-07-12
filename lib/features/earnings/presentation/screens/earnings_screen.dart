@@ -60,7 +60,7 @@ class EarningsScreen extends ConsumerWidget {
                         Navigator.push(context, createPremiumRoute(const ReportsScreen()));
                       }),
                       const SizedBox(width: 10),
-                      _buildQuickBadge(context, 'ESI Scheme', Icons.health_and_safety_outlined, Colors.emerald, isDark, () {
+                      _buildQuickBadge(context, 'ESI Scheme', Icons.health_and_safety_outlined, const Color(0xFF10B981), isDark, () {
                         Navigator.push(context, createPremiumRoute(const EsiScreen()));
                       }),
                     ],
@@ -127,14 +127,14 @@ class EarningsScreen extends ConsumerWidget {
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                       decoration: BoxDecoration(
-                                        color: Colors.emerald.withOpacity(0.18),
+                                        color: const Color(0xFF10B981).withOpacity(0.18),
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: const Text(
                                         'Offline Audited',
                                         style: TextStyle(
                                           fontSize: 9,
-                                          color: Colors.emerald,
+                                          color: const Color(0xFF10B981),
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -216,7 +216,7 @@ class EarningsScreen extends ConsumerWidget {
                                 'ESI Scheme Cover',
                                 'Cashless Active',
                                 Icons.health_and_safety_outlined,
-                                Colors.emerald,
+                                const Color(0xFF10B981),
                                 () {
                                   Navigator.push(context, createPremiumRoute(const EsiScreen()));
                                 },

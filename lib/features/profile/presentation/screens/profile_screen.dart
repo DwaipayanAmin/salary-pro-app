@@ -64,10 +64,10 @@ class ProfileScreen extends ConsumerWidget {
 
                     // 2. Offline Sync Hub Control Widget
                     Card(
-                      color: Colors.emerald.withOpacity(0.08),
+                      color: const Color(0xFF10B981).withOpacity(0.08),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
-                        side: const BorderSide(color: Colors.emerald, width: 1),
+                        side: const BorderSide(color: const Color(0xFF10B981), width: 1),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
@@ -76,12 +76,12 @@ class ProfileScreen extends ConsumerWidget {
                           children: [
                             const Row(
                               children: [
-                                Icon(Icons.cloud_done_outlined, color: Colors.emerald, size: 28),
+                                Icon(Icons.cloud_done_outlined, color: const Color(0xFF10B981), size: 28),
                                 SizedBox(width: 12),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('OFFLINE ENGINE: ACTIVE', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.emerald)),
+                                    Text('OFFLINE ENGINE: ACTIVE', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: const Color(0xFF10B981))),
                                     SizedBox(height: 2),
                                     Text('Local SQLite Database fully synced.', style: TextStyle(fontSize: 11, color: Colors.grey)),
                                   ],
@@ -89,7 +89,7 @@ class ProfileScreen extends ConsumerWidget {
                               ],
                             ),
                             IconButton(
-                              icon: const Icon(Icons.sync_outlined, color: Colors.emerald),
+                              icon: const Icon(Icons.sync_outlined, color: const Color(0xFF10B981)),
                               onPressed: () => _triggerSyncHandshake(context, ref, activeRole),
                             ),
                           ],
@@ -353,7 +353,7 @@ class ProfileScreen extends ConsumerWidget {
                 Navigator.pop(context);
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Profile saved successfully in offline storage!'), backgroundColor: Colors.emerald),
+                  const SnackBar(content: Text('Profile saved successfully in offline storage!'), backgroundColor: const Color(0xFF10B981)),
                 );
               },
               child: const Text('SAVE'),
@@ -374,7 +374,7 @@ class ProfileScreen extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 12),
-              CircularProgressIndicator(color: Colors.emerald),
+              CircularProgressIndicator(color: const Color(0xFF10B981)),
               SizedBox(height: 20),
               Text('Synching local SQLite with industrial database...', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
               SizedBox(height: 6),
@@ -395,7 +395,7 @@ class ProfileScreen extends ConsumerWidget {
         );
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Shifts fully synchronized with remote cloud!'), backgroundColor: Colors.emerald),
+      const SnackBar(content: Text('Shifts fully synchronized with remote cloud!'), backgroundColor: const Color(0xFF10B981)),
     );
   }
 
@@ -468,7 +468,7 @@ class ProfileScreen extends ConsumerWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text('Local SQLite tables successfully overwritten from backup!'),
-                      backgroundColor: Colors.emerald,
+                      backgroundColor: const Color(0xFF10B981),
                     ),
                   );
                 } else {

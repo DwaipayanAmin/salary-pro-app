@@ -67,7 +67,7 @@ class _ShiftScreenState extends ConsumerState<ShiftScreen> {
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.bold,
-                              color: Colors.emerald.shade500,
+                              color: const Color(0xFF10B981),
                             ),
                           ),
                         ],
@@ -303,10 +303,10 @@ class _ShiftScreenState extends ConsumerState<ShiftScreen> {
                               Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.emerald.withOpacity(0.1),
+                                  color: const Color(0xFF10B981).withOpacity(0.1),
                                   shape: BoxShape.circle,
                                 ),
-                                child: const Icon(Icons.check, color: Colors.emerald, size: 16),
+                                child: const Icon(Icons.check, color: const Color(0xFF10B981), size: 16),
                               ),
                               const SizedBox(width: 12),
                               Column(
@@ -335,7 +335,7 @@ class _ShiftScreenState extends ConsumerState<ShiftScreen> {
                               const SizedBox(height: 2),
                               Text(
                                 'Audited & Cleared',
-                                style: TextStyle(fontSize: 9, color: Colors.emerald.shade400, fontWeight: FontWeight.bold),
+                                style: TextStyle(fontSize: 9, color: const Color(0xFF34D399), fontWeight: FontWeight.bold),
                               ),
                             ],
                           ),

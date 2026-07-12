@@ -55,12 +55,12 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: Colors.emerald.withOpacity(0.12),
+                        color: const Color(0xFF10B981).withOpacity(0.12),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Text(
                         'July Ledger Open',
-                        style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: Colors.emerald),
+                        style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: const Color(0xFF10B981)),
                       ),
                     ),
                   ],
@@ -162,10 +162,10 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
                             BoxDecoration decoration = const BoxDecoration();
 
                             if (status == 'Present') {
-                              statusColor = Colors.emerald;
+                              statusColor = const Color(0xFF10B981);
                               textColor = Colors.white;
                               decoration = const BoxDecoration(
-                                color: Colors.emerald,
+                                color: const Color(0xFF10B981),
                                 shape: BoxShape.circle,
                               );
                             } else if (status == 'Holiday') {
@@ -245,7 +245,7 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
 
                             if (status == 'Present') {
                               decoration = BoxDecoration(
-                                color: Colors.emerald.shade500,
+                                color: const Color(0xFF10B981),
                                 shape: BoxShape.circle,
                               );
                               textColor = Colors.white;
@@ -335,7 +335,7 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      _buildLegendItem('Present', Colors.emerald),
+                      _buildLegendItem('Present', const Color(0xFF10B981)),
                       _buildLegendItem('Absent', Colors.red),
                       _buildLegendItem('Leave', Colors.orange),
                       _buildLegendItem('Holiday', Colors.blue),

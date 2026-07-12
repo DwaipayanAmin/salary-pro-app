@@ -300,7 +300,7 @@ class HomeScreen extends ConsumerWidget {
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                                 decoration: BoxDecoration(
                                   color: activeConfig.pfApplicable
-                                      ? Colors.emerald.withOpacity(0.12)
+                                      ? const Color(0xFF10B981).withOpacity(0.12)
                                       : Colors.orange.withOpacity(0.12),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
@@ -309,7 +309,7 @@ class HomeScreen extends ConsumerWidget {
                                   style: TextStyle(
                                     fontSize: 9,
                                     fontWeight: FontWeight.bold,
-                                    color: activeConfig.pfApplicable ? Colors.emerald : Colors.orange,
+                                    color: activeConfig.pfApplicable ? const Color(0xFF10B981) : Colors.orange,
                                   ),
                                 ),
                               ),
@@ -579,7 +579,7 @@ class HomeScreen extends ConsumerWidget {
                             ),
                             child: Row(
                               children: [
-                                const Icon(Icons.check_circle, color: Colors.emerald, size: 14),
+                                const Icon(Icons.check_circle, color: const Color(0xFF10B981), size: 14),
                                 const SizedBox(width: 6),
                                 Text(
                                   benefit,
@@ -642,7 +642,7 @@ class HomeScreen extends ConsumerWidget {
 
                             if (log.type == 'attendance') {
                               logIcon = Icons.verified_user_outlined;
-                              logColor = Colors.emerald;
+                              logColor = const Color(0xFF10B981);
                             } else if (log.type == 'salary') {
                               logIcon = Icons.currency_rupee_outlined;
                               logColor = Colors.amber;
@@ -782,7 +782,7 @@ class HomeScreen extends ConsumerWidget {
                   'Auto-Audit Live',
                   style: TextStyle(
                     fontSize: 9,
-                    color: Colors.emerald.shade500,
+                    color: const Color(0xFF10B981),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -1105,7 +1105,7 @@ class HomeScreen extends ConsumerWidget {
                           Text('${action.label} processed in local SQLite database!'),
                         ],
                       ),
-                      backgroundColor: Colors.emerald,
+                      backgroundColor: const Color(0xFF10B981),
                     ),
                   );
                 },

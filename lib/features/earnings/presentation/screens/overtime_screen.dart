@@ -231,7 +231,7 @@ class _OvertimeScreenState extends ConsumerState<OvertimeScreen> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: Colors.emerald.shade500,
+                                  color: const Color(0xFF10B981),
                                 ),
                               ),
                             ],
@@ -310,7 +310,7 @@ class _OvertimeScreenState extends ConsumerState<OvertimeScreen> {
                     final dates = ['July 10', 'July 08', 'July 04'];
                     final hours = ['2.5 Hrs', '3.0 Hrs', '1.5 Hrs'];
                     final status = ['Verified', 'Verified', 'Awaiting Sign-off'];
-                    final statusColors = [Colors.emerald, Colors.emerald, Colors.amber];
+                    final statusColors = [const Color(0xFF10B981), const Color(0xFF10B981), Colors.amber];
 
                     return Container(
                       padding: const EdgeInsets.all(14),
@@ -397,7 +397,7 @@ class _OvertimeScreenState extends ConsumerState<OvertimeScreen> {
             Text('Submitted ${hours.toStringAsFixed(1)} hours (Est. Pay ₹${pay.toInt()}) for approval.'),
           ],
         ),
-        backgroundColor: Colors.emerald,
+        backgroundColor: const Color(0xFF10B981),
       ),
     );
   }
