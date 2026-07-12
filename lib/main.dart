@@ -29,7 +29,7 @@ class ShramikApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: themeMode == ThemeMode.light ? ThemeMode.light : ThemeMode.dark,
+      themeMode: themeMode == AppThemeMode.light ? ThemeMode.light : ThemeMode.dark,
       home: const AppContentGate(),
     );
   }

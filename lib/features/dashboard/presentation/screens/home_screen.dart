@@ -24,7 +24,7 @@ class HomeScreen extends ConsumerWidget {
     final activityState = ref.watch(activityProvider(activeRole));
     final profileState = ref.watch(profileProvider(activeRole));
     final themeMode = ref.watch(themeModeProvider);
-    final isDark = themeMode == ThemeMode.dark;
+    final isDark = themeMode == AppThemeMode.dark;
 
     final currencyFormat = NumberFormat.currency(locale: 'en_IN', symbol: '₹', decimalDigits: 0);
     final currentTime = DateFormat('EEEE, dd MMMM').format(DateTime.now());
@@ -91,7 +91,7 @@ class HomeScreen extends ConsumerWidget {
                             ),
                             onPressed: () {
                               ref.read(themeModeProvider.notifier).state =
-                                  isDark ? ThemeMode.light : ThemeMode.dark;
+                                  isDark ? AppThemeMode.light : AppThemeMode.dark;
                             },
                           ),
                         ),

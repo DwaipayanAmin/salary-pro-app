@@ -6,7 +6,7 @@ import '../../../core/database/local_database.dart';
 final activeRoleProvider = StateProvider<UserRole>((ref) => UserRole.qualityChecker);
 
 // Provider for tracking light vs dark theme mode
-final themeModeProvider = StateProvider<ThemeMode>((ref) => ThemeMode.light);
+final themeModeProvider = StateProvider<AppThemeMode>((ref) => AppThemeMode.light);
 
 // StateNotifier to fetch, log, and sync activity logs from local SQLite database
 class ActivityNotifier extends StateNotifier<AsyncValue<List<ActivityLog>>> {
@@ -78,4 +78,4 @@ class ActivityNotifier extends StateNotifier<AsyncValue<List<ActivityLog>>> {
 final activityProvider = StateNotifierProvider.family<ActivityNotifier, AsyncValue<List<ActivityLog>>, UserRole>((ref, role) {
   return ActivityNotifier(role);
 });
-enum ThemeMode { light, dark }
+enum AppThemeMode { light, dark }

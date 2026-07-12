@@ -230,11 +230,11 @@ class ProfileScreen extends ConsumerWidget {
                                   ],
                                 ),
                                 Switch(
-                                  value: themeMode == ThemeMode.dark,
+                                  value: themeMode == AppThemeMode.dark,
                                   activeColor: AppTheme.accentColor,
                                   onChanged: (val) {
                                     ref.read(themeModeProvider.notifier).state =
-                                        val ? ThemeMode.dark : ThemeMode.light;
+                                        val ? AppThemeMode.dark : AppThemeMode.light;
                                   },
                                 ),
                               ],
