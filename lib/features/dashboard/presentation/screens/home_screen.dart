@@ -5,14 +5,13 @@ import 'package:fl_chart/fl_chart.dart';
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/theme/route_transitions.dart';
-import '../providers/role_provider.dart';
+import '../../providers/role_provider.dart';
 import '../../../profile/providers/profile_provider.dart';
 import '../../../earnings/presentation/screens/overtime_screen.dart';
 import '../../../earnings/presentation/screens/payslip_screen.dart';
 import '../../../shift/presentation/screens/shift_screen.dart';
 import '../../../attendance/presentation/screens/leave_management_screen.dart';
 import '../../../attendance/presentation/screens/calendar_attendance_screen.dart';
-import '../../../profile/presentation/screens/employee_management_screen.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});

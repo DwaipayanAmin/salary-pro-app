@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../../dashboard/providers/role_provider.dart';
-import '../providers/attendance_provider.dart';
+import '../../../../core/constants/app_constants.dart';
+import '../../../dashboard/providers/role_provider.dart';
+import '../../providers/attendance_provider.dart';
 
 class TimeScreen extends ConsumerStatefulWidget {
   const TimeScreen({super.key});
@@ -130,8 +131,8 @@ class _TimeScreenState extends ConsumerState<TimeScreen> with SingleTickerProvid
                               shape: BoxShape.circle,
                               gradient: RadialGradient(
                                 colors: attendanceState.isClockedIn
-                                    ? [const Color(0xFF34D399), const Color(0xFF10B981).shade900]
-                                    : [AppTheme.accentColor.shade400, AppTheme.accentColor.shade900],
+                                    ? [const Color(0xFF34D399), const Color(0xFF064E3B)]
+                                    : [const Color(0xFFFBBF24), const Color(0xFF78350F)],
                               ),
                               boxShadow: [
                                 BoxShadow(

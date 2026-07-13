@@ -208,11 +208,9 @@ class AttendanceNotifier extends StateNotifier<AttendanceState> {
 
         // Record monthly earnings entry
         final baseRate = ROLE_CONFIGS[activeRole]?.hourlyRate ?? 100.0;
-        final otMultiplier = ROLE_CONFIGS[activeRole]?.otMultiplier ?? 1.5;
         final normalHours = elapsedHours > 8.0 ? 8.0 : elapsedHours;
         final otHours = elapsedHours > 8.0 ? elapsedHours - 8.0 : 0.0;
         final basicEarned = normalHours * baseRate;
-        final otEarned = otHours * baseRate * otMultiplier;
 
         final yearMonth = '${clockOutDateTime.year}-${clockOutDateTime.month.toString().padLeft(2, '0')}';
         final ledgerId = 'earn_${roleStr}_$yearMonth';

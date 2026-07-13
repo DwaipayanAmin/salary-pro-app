@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
-import '../../../../core/theme/app_theme.dart';
-import '../../../../core/constants/app_constants.dart';
 import '../../../../core/providers/app_state_providers.dart';
 import '../../../dashboard/providers/role_provider.dart';
 import '../../../attendance/providers/attendance_provider.dart';
@@ -148,86 +146,6 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
                             orElse: () {},
                           );
 
-                          // Build grid days
-                          final List<Widget> dayWidgets = [];
-
-                          // 2 empty placeholders for July 2026 (Wednesday start)
-                          dayWidgets.add(Expanded(child: Container()));
-                          dayWidgets.add(Expanded(child: Container()));
-
-                          for (int day = 1; day <= 31; day++) {
-                            final status = dayStatuses[day] ?? 'Absent';
-                            Color statusColor = Colors.transparent;
-                            Color textColor = isDark ? Colors.white : Colors.black;
-                            BoxDecoration decoration = const BoxDecoration();
-
-                            if (status == 'Present') {
-                              statusColor = const Color(0xFF10B981);
-                              textColor = Colors.white;
-                              decoration = const BoxDecoration(
-                                color: const Color(0xFF10B981),
-                                shape: BoxShape.circle,
-                              );
-                            } else if (status == 'Holiday') {
-                              statusColor = Colors.blue;
-                              textColor = Colors.white;
-                              decoration = const BoxDecoration(
-                                color: Colors.blue,
-                                shape: BoxShape.circle,
-                              );
-                            } else if (status == 'Leave') {
-                              statusColor = Colors.orange;
-                              textColor = Colors.white;
-                              decoration = const BoxDecoration(
-                                color: Colors.orange,
-                                shape: BoxShape.circle,
-                              );
-                            } else {
-                              // Sabbatical / Weekend or Unmarked
-                              if (day % 7 == 4 || day % 7 == 5) {
-                                // Weekend (Saturday or Sunday)
-                                statusColor = Colors.grey.withOpacity(0.12);
-                                decoration = BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.15),
-                                  shape: BoxShape.circle,
-                                );
-                              }
-                            }
-
-                            dayWidgets.add(
-                              Expanded(
-                                child: AspectRatio(
-                                  aspectRatio: 1,
-                                  child: Container(
-                                    margin: const EdgeInsets.all(4),
-                                    decoration: decoration,
-                                    child: Center(
-                                      child: Text(
-                                        '$day',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 13,
-                                          color: textColor,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-
-                            if (dayWidgets.length == 7) {
-                              // Completed week, output row
-                              final row = Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: List.from(dayWidgets),
-                              );
-                              dayWidgets.clear();
-                              // Add spacing and the row
-                              // (In real layout, we need to wrap row or lists)
-                            }
-                          }
-
                           // Layout the rows of the calendar grid
                           final List<Widget> finalWeeks = [];
                           List<Widget> currentWeek = [];
@@ -239,7 +157,6 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
 
                           for (int day = 1; day <= 31; day++) {
                             final status = dayStatuses[day];
-                            Color statusColor = Colors.transparent;
                             Color textColor = isDark ? Colors.white : Colors.black;
                             BoxDecoration decoration = const BoxDecoration();
 

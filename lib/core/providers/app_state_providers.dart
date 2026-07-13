@@ -1,15 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import '../database/local_database.dart';
 import 'package:sqflite/sqflite.dart';
 import '../constants/app_constants.dart';
-import '../../features/dashboard/providers/role_provider.dart';
-import '../../features/attendance/providers/attendance_provider.dart';
 
 // ==========================================
 // 1. DATA MODELS

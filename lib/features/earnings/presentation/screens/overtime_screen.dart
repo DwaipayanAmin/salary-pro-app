@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../dashboard/providers/role_provider.dart';
 
@@ -19,7 +20,6 @@ class _OvertimeScreenState extends ConsumerState<OvertimeScreen> {
     final activeRole = ref.watch(activeRoleProvider);
     final activeConfig = ROLE_CONFIGS[activeRole]!;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final primaryColor = isDark ? Colors.white : AppTheme.primaryColor;
     final currencyFormat = NumberFormat.currency(locale: 'en_IN', symbol: '₹', decimalDigits: 0);
 
     // Calculate OT rates

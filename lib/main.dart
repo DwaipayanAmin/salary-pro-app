@@ -80,7 +80,6 @@ class _AppMainLayoutState extends State<AppMainLayout> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final primaryColor = Theme.of(context).primaryColor;
     
     return Scaffold(
       body: AnimatedSwitcher(

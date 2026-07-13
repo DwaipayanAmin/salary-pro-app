@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/theme/route_transitions.dart';
 import '../../../../core/providers/app_state_providers.dart';
-import '../../dashboard/providers/role_provider.dart';
-import '../providers/profile_provider.dart';
+import '../../../dashboard/providers/role_provider.dart';
+import '../../providers/profile_provider.dart';
 import 'employee_management_screen.dart';
 
 class ProfileScreen extends ConsumerWidget {
@@ -16,7 +17,6 @@ class ProfileScreen extends ConsumerWidget {
     final activeRole = ref.watch(activeRoleProvider);
     final profileState = ref.watch(profileProvider(activeRole));
     final themeMode = ref.watch(themeModeProvider);
-    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
       body: SafeArea(

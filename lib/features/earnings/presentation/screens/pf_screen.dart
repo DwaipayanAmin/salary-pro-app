@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import '../../../../core/constants/app_constants.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../dashboard/providers/role_provider.dart';
 
@@ -26,7 +27,6 @@ class _PfScreenState extends ConsumerState<PfScreen> {
     final double salary = activeConfig.baseSalary > 0 ? activeConfig.baseSalary : 15000.0;
     final double workerShare = salary * 0.12;
     final double employerShare = salary * 0.12;
-    final double totalMonthlyContribution = workerShare + employerShare;
     const double cumulativePfBalance = 143890.0;
 
     return Scaffold(

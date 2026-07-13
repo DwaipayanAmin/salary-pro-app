@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../../../dashboard/providers/role_provider.dart';
 
 class ShiftScreen extends ConsumerStatefulWidget {
   const ShiftScreen({super.key});
@@ -18,7 +16,6 @@ class _ShiftScreenState extends ConsumerState<ShiftScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final activeRole = ref.watch(activeRoleProvider);
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final primaryColor = isDark ? Colors.white : AppTheme.primaryColor;
 

@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/theme/route_transitions.dart';
-import '../../dashboard/providers/role_provider.dart';
-import '../providers/earnings_provider.dart';
+import '../../../../core/providers/app_state_providers.dart';
+import '../../../dashboard/providers/role_provider.dart';
 import 'overtime_screen.dart';
 import 'pf_screen.dart';
 import 'esi_screen.dart';
@@ -18,7 +18,6 @@ class EarningsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final activeRole = ref.watch(activeRoleProvider);
-    final earningsState = ref.watch(earningsProvider(activeRole));
     final currencyFormat = NumberFormat.currency(locale: 'en_IN', symbol: '₹', decimalDigits: 0);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
