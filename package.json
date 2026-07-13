@@ -1,15 +1,12 @@
 {
-  "name": "blue_collar_tracker_preview",
-  "private": true,
+  "name": "salary-pro",
   "version": "1.0.0",
-  "type": "module",
+  "description": "Salary Pro - Blue Collar Tracker",
+  "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
-    "build": "echo 'Pruning React - Flutter is ready'",
-    "start": "node server.js",
-    "lint": "echo 'Pruning React - Flutter is clean'"
+    "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.19.2"
   }
 }
