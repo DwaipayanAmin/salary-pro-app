@@ -189,12 +189,12 @@ const Map<UserRole, RoleConfig> ROLE_CONFIGS = {
   ),
 };
 
-final List<QuickAction> QUICK_ACTIONS = [
+const List<QuickAction> QUICK_ACTIONS = [
   QuickAction(
     id: 'advance',
     label: 'Salary Advance',
     icon: Icons.monetization_on_outlined,
-    gradientColors: [Colors.amber, Colors.orange],
+    gradientColors: const [Colors.amber, Colors.orange],
     dialogTitle: 'Request Salary Advance',
     dialogDescription:
         'Need money early? Request an advance up to 50% of your current accrued monthly earnings interest-free. Funds transfer instantly upon line-manager approval.',
@@ -203,7 +203,7 @@ final List<QuickAction> QUICK_ACTIONS = [
     id: 'ot_log',
     label: 'Log Overtime',
     icon: Icons.av_timer_outlined,
-    gradientColors: [Colors.purple, Colors.indigo],
+    gradientColors: const [Colors.purple, Colors.indigo],
     dialogTitle: 'Submit Overtime (OT) Hours',
     dialogDescription:
         'Record extra hours spent outside regular shift limits. Submissions are verified against digital RFID swipe gates automatically.',
@@ -212,7 +212,7 @@ final List<QuickAction> QUICK_ACTIONS = [
     id: 'payslip',
     label: 'View Payslips',
     icon: Icons.receipt_long_outlined,
-    gradientColors: [Colors.blue, Colors.cyan],
+    gradientColors: const [Colors.blue, Colors.cyan],
     dialogTitle: 'Interactive Payslips',
     dialogDescription:
         'View, download, or share digitally signed PDF payslips for previous pay periods complete with Tax deductions, PF, and OT breakdowns.',
@@ -221,7 +221,7 @@ final List<QuickAction> QUICK_ACTIONS = [
     id: 'leave',
     label: 'Apply Leave',
     icon: Icons.calendar_today_outlined,
-    gradientColors: [const Color(0xFF10B981), Colors.teal],
+    gradientColors: const [Color(0xFF10B981), Colors.teal],
     dialogTitle: 'Apply for Leave / Time-Off',
     dialogDescription:
         'Submit requests for sick leave, casual leave, or unpaid personal days off. Checks active balance dynamically before processing.',

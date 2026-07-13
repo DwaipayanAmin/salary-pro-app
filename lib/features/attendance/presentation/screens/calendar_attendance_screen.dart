@@ -102,7 +102,7 @@ class _CalendarAttendanceScreenState extends ConsumerState<CalendarAttendanceScr
                       const SizedBox(height: 12),
 
                       // Monthly Grid (July 2026 starts on Wednesday, so 2 empty spaces)
-                      attendanceState.when(
+                      attendanceState.history.when(
                         data: (attendanceLogs) {
                           final Map<int, String> dayStatuses = {};
 

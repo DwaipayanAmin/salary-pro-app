@@ -22,7 +22,7 @@ class AppTheme {
         onSurface: const Color(0xFF1E293B),
         error: const Color(0xFFEF4444),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: Colors.white,
         elevation: 1.5,
         shadowColor: const Color(0x0F000000),
@@ -95,7 +95,7 @@ class AppTheme {
         onSurface: Colors.white,
         error: const Color(0xFFF87171),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: const Color(0xFF1E293B),
         elevation: 0,
         shape: RoundedRectangleBorder(
