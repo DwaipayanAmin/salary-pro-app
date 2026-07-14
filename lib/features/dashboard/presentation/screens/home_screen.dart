@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blue_collar_tracker/features/dashboard/presentation/screens/dashboard_screen.dart';
-import 'package:blue_collar_tracker/features/attendance/presentation/screens/time_screen.dart';
+import 'package:blue_collar_tracker/features/attendance/presentation/screens/attendance_screen.dart';
 import 'package:blue_collar_tracker/features/earnings/presentation/screens/earnings_screen.dart';
 import 'package:blue_collar_tracker/features/profile/presentation/screens/profile_screen.dart';
 import 'package:blue_collar_tracker/core/theme/app_theme.dart';
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const DashboardScreen(),
-    const TimeScreen(),
+    const AttendanceScreen(),
     const EarningsScreen(),
     const ProfileScreen(),
   ];
