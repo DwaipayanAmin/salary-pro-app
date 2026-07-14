@@ -341,7 +341,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.between,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'SHIFT',
@@ -404,7 +404,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.between,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'LOGGED HOURS',
@@ -482,7 +482,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.between,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 monthName,
@@ -647,7 +647,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.between,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Attendance History',
