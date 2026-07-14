@@ -418,7 +418,7 @@ class DashboardScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 11,
                   fontWeight: FontWeight.bold,
-                  color: isDark ? Colors.white87 : const Color(0xFF334155),
+                  color: isDark ? Colors.white.withValues(alpha: 0.87) : const Color(0xFF334155),
                 ),
               ),
             ],
@@ -559,7 +559,7 @@ class DashboardScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: isDeduction 
                   ? Colors.red.shade600 
-                  : (isDark ? Colors.white80 : const Color(0xFF334155)),
+                  : (isDark ? Colors.white.withValues(alpha: 0.80) : const Color(0xFF334155)),
             ),
           ),
         ],

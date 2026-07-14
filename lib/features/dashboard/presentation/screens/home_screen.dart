@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:blue_collar_tracker/features/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:blue_collar_tracker/features/attendance/presentation/screens/time_screen.dart';
 import 'package:blue_collar_tracker/features/earnings/presentation/screens/earnings_screen.dart';

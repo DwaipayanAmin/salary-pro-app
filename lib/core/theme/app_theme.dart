@@ -13,14 +13,14 @@ class AppTheme {
       colorScheme: const ColorScheme.light(
         primary: royalBlue,
         secondary: emeraldGreen,
-        background: Color(0xFFF8FAFC),
-        surface: Colors.white,
+        surface: Color(0xFFF8FAFC),
+        surfaceContainer: Colors.white,
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         error: Color(0xFFEF4444),
       ),
       textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
@@ -61,14 +61,14 @@ class AppTheme {
       colorScheme: const ColorScheme.dark(
         primary: royalBlue,
         secondary: emeraldGreen,
-        background: darkSlate,
-        surface: Color(0xFF1E293B),
+        surface: darkSlate,
+        surfaceContainer: Color(0xFF1E293B),
         onPrimary: Colors.white,
         onSecondary: Colors.white,
         error: Color(0xFFF87171),
       ),
       textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
