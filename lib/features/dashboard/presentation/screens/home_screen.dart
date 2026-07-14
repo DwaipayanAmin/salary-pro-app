@@ -4,7 +4,6 @@ import 'package:blue_collar_tracker/features/dashboard/presentation/screens/dash
 import 'package:blue_collar_tracker/features/attendance/presentation/screens/time_screen.dart';
 import 'package:blue_collar_tracker/features/earnings/presentation/screens/earnings_screen.dart';
 import 'package:blue_collar_tracker/features/profile/presentation/screens/profile_screen.dart';
-import 'package:blue_collar_tracker/features/dashboard/providers/role_provider.dart';
 import 'package:blue_collar_tracker/core/theme/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +25,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final roleProvider = Provider.of<RoleProvider>(context);
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
@@ -35,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(isDark ? 0.3 : 0.06),
+              color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.06),
               blurRadius: 10,
               offset: const Offset(0, -4),
             ),

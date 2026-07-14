@@ -48,7 +48,7 @@ class DashboardScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: AppTheme.royalBlue.withOpacity(0.2),
+                            color: AppTheme.royalBlue.withValues(alpha: 0.2),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),
@@ -81,7 +81,7 @@ class DashboardScreen extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               fontSize: 10,
                               fontWeight: FontWeight.w500,
-                              color: isDark ? Colors.white50 : Colors.black54,
+                              color: isDark ? Colors.white.withValues(alpha: 0.5) : Colors.black54,
                             ),
                           ),
                         ],
@@ -108,7 +108,7 @@ class DashboardScreen extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
-                    color: isDark ? Colors.white50 : Colors.black54,
+                    color: isDark ? Colors.white.withValues(alpha: 0.5) : Colors.black54,
                   ),
                 ),
 
@@ -337,7 +337,7 @@ class DashboardScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: color.withOpacity(0.12),
+                      color: color.withValues(alpha: 0.12),
                       shape: BoxShape.circle,
                     ),
                     child: Icon(icon, color: color, size: 16),
@@ -406,7 +406,7 @@ class DashboardScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
+                  color: color.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(icon, color: color, size: 22),
@@ -450,7 +450,7 @@ class DashboardScreen extends StatelessWidget {
                   width: 40,
                   height: 4,
                   decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.3),
+                    color: Colors.grey.withValues(alpha: 0.3),
                     borderRadius: BorderRadius.circular(2),
                   ),
                 ),
@@ -642,7 +642,7 @@ class DashboardScreen extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(12),
           color: isSelected 
-              ? AppTheme.royalBlue.withOpacity(0.05) 
+              ? AppTheme.royalBlue.withValues(alpha: 0.05) 
               : Colors.transparent,
         ),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -666,7 +666,7 @@ class DashboardScreen extends StatelessWidget {
                     timing,
                     style: GoogleFonts.poppins(
                       fontSize: 11,
-                      color: isDark ? Colors.white50 : Colors.black54,
+                      color: isDark ? Colors.white.withValues(alpha: 0.5) : Colors.black54,
                     ),
                   ),
                 ],

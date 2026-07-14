@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                       'Enter your Employee ID or Registered Email to receive reset instructions.',
                       style: GoogleFonts.poppins(
                         fontSize: 13,
-                        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -243,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               height: size.width * 0.7,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.royalBlue.withOpacity(isDark ? 0.25 : 0.15),
+                color: AppTheme.royalBlue.withValues(alpha: isDark ? 0.25 : 0.15),
               ),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 80, sigmaY: 80),
@@ -260,7 +260,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
               height: size.width * 0.7,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppTheme.emeraldGreen.withOpacity(isDark ? 0.20 : 0.12),
+                color: AppTheme.emeraldGreen.withValues(alpha: isDark ? 0.20 : 0.12),
               ),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 80, sigmaY: 80),
@@ -291,7 +291,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                                 Container(
                                   padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
-                                    color: isDark ? Colors.white10 : Colors.black.withOpacity(0.04),
+                                    color: isDark ? Colors.white10 : Colors.black.withValues(alpha: 0.04),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Icon(
@@ -346,7 +346,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                             borderRadius: BorderRadius.circular(22),
                             boxShadow: [
                               BoxShadow(
-                                color: AppTheme.royalBlue.withOpacity(0.3),
+                                color: AppTheme.royalBlue.withValues(alpha: 0.3),
                                 blurRadius: 15,
                                 offset: const Offset(0, 8),
                               ),
@@ -394,18 +394,18 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                               duration: const Duration(milliseconds: 350),
                               decoration: BoxDecoration(
                                 color: isDark 
-                                    ? Colors.black.withOpacity(0.25) 
-                                    : Colors.white.withOpacity(0.65),
+                                    ? Colors.black.withValues(alpha: 0.25) 
+                                    : Colors.white.withValues(alpha: 0.65),
                                 borderRadius: BorderRadius.circular(24),
                                 border: Border.all(
                                   color: isDark 
-                                      ? Colors.white.withOpacity(0.12) 
-                                      : Colors.white.withOpacity(0.35),
+                                      ? Colors.white.withValues(alpha: 0.12) 
+                                      : Colors.white.withValues(alpha: 0.35),
                                   width: 1.5,
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(isDark ? 0.3 : 0.05),
+                                    color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.05),
                                     blurRadius: 32,
                                     offset: const Offset(0, 12),
                                   ),
@@ -559,7 +559,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                                           borderRadius: BorderRadius.circular(14),
                                           boxShadow: [
                                             BoxShadow(
-                                              color: AppTheme.royalBlue.withOpacity(0.35),
+                                              color: AppTheme.royalBlue.withValues(alpha: 0.35),
                                               blurRadius: 16,
                                               offset: const Offset(0, 6),
                                             ),

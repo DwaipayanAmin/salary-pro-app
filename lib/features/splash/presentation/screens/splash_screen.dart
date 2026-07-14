@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         Navigator.of(context).pushReplacement(
-          RouteTransitions.fadeIn(const LoginScreen()),
+          RouteTransitions.slideIn(const LoginScreen()),
         );
       }
     });
@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                       borderRadius: BorderRadius.circular(28),
                       boxShadow: [
                         BoxShadow(
-                          color: AppTheme.royalBlue.withOpacity(0.3),
+                          color: AppTheme.royalBlue.withValues(alpha: 0.3),
                           blurRadius: 30,
                           offset: const Offset(0, 15),
                         ),
@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: isDark ? Colors.white50 : Colors.black54,
+                      color: isDark ? Colors.white.withValues(alpha: 0.5) : Colors.black54,
                     ),
                   ),
                   const SizedBox(height: 48),
