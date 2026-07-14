@@ -1,3 +1,3 @@
 class AppConstants {
-  static const String appName = 'Salary Pro';
+  static const String appName = 'MJ HRMS';
 }
