@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:blue_collar_tracker/core/theme/route_transitions.dart';
 import 'package:blue_collar_tracker/core/theme/app_theme.dart';
 import 'package:blue_collar_tracker/features/auth/presentation/screens/login_screen.dart';
-import 'package:blue_collar_tracker/core/widgets/jay_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -73,7 +72,14 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const JayLogo(width: 130, height: 86),
+                  SizedBox(
+                    width: 130,
+                    height: 86,
+                    child: Image.asset(
+                      'assets/images/jay_logo.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                   const SizedBox(height: 28),
                   Text(
                     'MJ HRMS',

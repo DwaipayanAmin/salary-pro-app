@@ -36,30 +36,12 @@ class DashboardScreen extends StatelessWidget {
                 // Top Company Logo & Name Header
                 Row(
                   children: [
-                    Container(
-                      width: 44,
+                    SizedBox(
+                      width: 66,
                       height: 44,
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [AppTheme.royalBlue, AppTheme.emeraldGreen],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppTheme.royalBlue.withValues(alpha: 0.2),
-                            blurRadius: 8,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: const Center(
-                        child: Icon(
-                          Icons.diversity_3_rounded,
-                          size: 22,
-                          color: Colors.white,
-                        ),
+                      child: Image.asset(
+                        'assets/images/jay_logo.png',
+                        fit: BoxFit.contain,
                       ),
                     ),
                     const SizedBox(width: 12),

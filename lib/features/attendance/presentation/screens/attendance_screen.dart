@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:blue_collar_tracker/core/theme/app_theme.dart';
 import 'package:blue_collar_tracker/features/attendance/providers/attendance_provider.dart';
-import 'package:blue_collar_tracker/core/widgets/jay_logo.dart';
 
 class AttendanceScreen extends StatefulWidget {
   const AttendanceScreen({super.key});
@@ -49,7 +48,14 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const JayLogo(width: 48, height: 32, showShadow: false),
+            SizedBox(
+              width: 48,
+              height: 32,
+              child: Image.asset(
+                'assets/images/jay_logo.png',
+                fit: BoxFit.contain,
+              ),
+            ),
             const SizedBox(width: 12),
             Text(
               'Attendance Tracker',

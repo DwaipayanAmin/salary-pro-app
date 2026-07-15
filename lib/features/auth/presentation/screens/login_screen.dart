@@ -334,30 +334,12 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                         SizedBox(height: size.height * 0.04),
 
                         // Enterprise Logo Visual Block
-                        Container(
-                          width: 80,
+                        SizedBox(
+                          width: 120,
                           height: 80,
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [AppTheme.royalBlue, AppTheme.emeraldGreen],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
-                            borderRadius: BorderRadius.circular(22),
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppTheme.royalBlue.withValues(alpha: 0.3),
-                                blurRadius: 15,
-                                offset: const Offset(0, 8),
-                              ),
-                            ],
-                          ),
-                          child: const Center(
-                            child: Icon(
-                              Icons.diversity_3_rounded,
-                              size: 40,
-                              color: Colors.white,
-                            ),
+                          child: Image.asset(
+                            'assets/images/jay_logo.png',
+                            fit: BoxFit.contain,
                           ),
                         ),
                         const SizedBox(height: 16),
